@@ -44,11 +44,43 @@ code {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 
-.navDiv{
+.navDiv {
+  width: 100%;
+  font-family: 'Poiret One', cursive;
+  // font-family: 'Orienta', sans-serif;
+  background: white;
+  color: gray;
+  display: flex;
+}
+
+.logoDiv {
+  width: 50%;
+  margin-left: 0;
+}
+
+.optionsDiv {
+  width: 50%;
+  justify-content: flex-end;
+  align-content: flex-end;
+
+}
+
+.link {
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.options{
+  display: flex;
+  justify-content: flex-end;
 }
