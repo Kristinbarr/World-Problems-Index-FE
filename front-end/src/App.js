@@ -1,5 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import React from "react";
+import { Route } from "react-router-dom";
+import Login from "./components/Login";
 import '../src/scss/App.scss'
 
 import Navigation from "./components/Navigation";
