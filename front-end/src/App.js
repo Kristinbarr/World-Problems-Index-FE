@@ -2,16 +2,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Login from "./components/Login";
-import '../src/scss/App.scss'
+import '../src/scss/App.scss';
 
 import Navigation from "./components/Navigation";
+import HomeDisplay from "./components/HomeDisplay";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Navigation/>
-        <img src={logo} className="App-logo" alt="logo" />
+        <HomeDisplay/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
