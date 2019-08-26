@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo.png";
+import Logo from "../Logo.png";
 
 
 export default function Navigation() {
@@ -8,7 +8,7 @@ export default function Navigation() {
     
     return (
 
-        <nav>
+        <nav className = "navDiv">
             <NavLink exact activeClassName="active" to={'/'}>
                 <img src = {Logo}></img>
             </NavLink>
@@ -17,7 +17,7 @@ export default function Navigation() {
                 dashboard
             </NavLink>
 
-            <NavLink activeClassName="active" to={'/solutions'}>
+            <NavLink activeClassName="active" to={'/login'}>
                 log in
             </NavLink>
         </nav>
