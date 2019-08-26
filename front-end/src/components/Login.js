@@ -33,7 +33,7 @@ const Login = ({ history }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1> Welcome to the Bubble App! </h1>
+      <h1> login </h1>
       <input
         type="text"
         name="username"
@@ -48,7 +48,7 @@ const Login = ({ history }) => {
         onChange={handleChange}
         value={creds.password}
       />
-      <button type="submit">Log In</button>
+      <button type="submit"> Submit </button>
     </form>
   );
 };
