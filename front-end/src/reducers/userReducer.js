@@ -3,11 +3,10 @@ import { LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions";
 
 export const initialState = {
   signingUp: false,
-  loggedin: false,
-  loggedinLoading: false,
   problemList: [],
   problem: {},
-  error: ""
+  signUpErr: '',
+  loginErr: ""
 };
 
 const userReducer = (state = initialState, action) => {
@@ -48,7 +47,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         signingUp: false,
-        signUpErr: action.payload
+        loginErr: action.payload
       };
     default:
       return state;
