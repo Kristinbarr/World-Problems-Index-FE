@@ -16,7 +16,6 @@ export default function Navigation() {
             </div>
 
             <div className="optionsDiv">
-                <div className = 'options'>
                     <NavLink className="link" exact activeClassName="active" to={'/dashboard'}>
                         dashboard
             </NavLink>
@@ -24,7 +23,6 @@ export default function Navigation() {
                     <NavLink className="link" activeClassName="active" to={'/login'}>
                         log in
             </NavLink>
-                </div>
             </div>
 
 
