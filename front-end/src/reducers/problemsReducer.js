@@ -6,7 +6,7 @@ import {
 
 export const initialState = {
   fetchingProblems: false,
-  problemList: [],
+  problemsList: [],
   problem: {},
   error: ''
 }
