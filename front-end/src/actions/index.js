@@ -8,7 +8,7 @@ export const signup = (user) => (dispatch) => {
   console.log('User: ', user)
   dispatch({ type: SIGNUP_FETCHING })
   return axios
-    .post('https://the-world-problems-index.herokuapp.com/api/auth/register')
+    .post('https://the-world-problems-index.herokuapp.com/api/auth/register', user)
     .then((res) => {
       console.log('token response: ', res)
       localStorage.setItem('auth-token', res.data.token)
