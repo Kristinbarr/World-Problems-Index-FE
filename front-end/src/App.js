@@ -10,11 +10,12 @@ import '../src/scss/App.scss'
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <Navigation />
-        <Route path='/' render={(props) => <HomeDisplay {...props} />} />
-        <Route path='/problem' render={(props) => <ProblemDisplay {...props} />} />
-      </header>
+      <Navigation />
+      <Route path='/' render={(props) => <HomeDisplay {...props} />} />
+      <Route
+        path='/problem'
+        render={(props) => <ProblemDisplay {...props} />}
+      />
     </div>
   )
 }
