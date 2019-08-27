@@ -2,7 +2,6 @@ import React from 'react'
 import data from '../data'
 
 const HomeDisplay = () => {
-  //Axios junk here
   return (
     <div className='home-container'>
       <div className='home-content'>
