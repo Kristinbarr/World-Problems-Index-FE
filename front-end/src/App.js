@@ -8,6 +8,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Dashboard from './components/Dashboard'
 import PrivateRoute from './components/PrivateRoute'
+import Footer from './components/Footer';
 import '../src/scss/App.scss'
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         exact path='/dashboard'
         render={(props) => <Dashboard {...props} />}
       />
+      <Footer />
     </div>
   )
 }
