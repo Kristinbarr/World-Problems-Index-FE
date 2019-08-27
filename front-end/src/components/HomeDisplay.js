@@ -5,19 +5,19 @@ import Axios from "axios";
 import { Link } from 'react-router-dom';
 
 const HomeDisplay = () => {
-    // const [problems, setProblems] = useState([]);
+    const [problems, setProblems] = useState([]);
 
-    // useEffect(() => {
-    //     Axios.get(`https://the-world-problems-index.herokuapp.com/api/problems`)
-    //         .then(res => {
-    //             console.log(res.data);
-    //             const probList = res.data;
-    //             setProblems(probList);
-    //         })
-    //         .catch(error => {
-    //             console.error('Server Error', error);
-    //         });
-    // }, []);
+    useEffect(() => {
+        Axios.get(`https://the-world-problems-index.herokuapp.com/api/problems`)
+            .then(res => {
+                console.log(res.data);
+                const probList = res.data;
+                setProblems(probList);
+            })
+            .catch(error => {
+                console.error('Server Error', error);
+            });
+    }, []);
 
 
 
@@ -40,16 +40,17 @@ const HomeDisplay = () => {
         </div>
     )
 }
+export default HomeDisplay;
 
-const mapStateToProps = (state) => {
-    return {
-      fetchingProblems: state.problemsReducer.fetchingProblems, 
-      problemsList: state.problemsReducer.problemsList
-    }
-  };
-  export default connect(
-    mapStateToProps,
-    { fetchProblems }
-  )(HomeDisplay);
+// const mapStateToProps = (state) => {
+//     return {
+//       fetchingProblems: state.problemsReducer.fetchingProblems, 
+//       problemsList: state.problemsReducer.problemsList
+//     }
+//   };
+//   export default connect(
+//     mapStateToProps,
+//     { fetchProblems }
+//   )(HomeDisplay);
 
 
