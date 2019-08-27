@@ -6,12 +6,12 @@ const HomeDisplay = () => {
   return (
     <div className='home-container'>
       <div className='home-content'>
-        <h3 className='home-headline'>
+        <h2 className='home-headline'>
           Investigate problems of the world, consider their solutions, and
           explore related problems and solutions
-        </h3>
+        </h2>
         {data.map((item) => {
-          return <div className='problem-bubble'>{item}</div>
+          return <button key={item} className='problem-bubble'>{item}</button>
         })}
       </div>
     </div>
