@@ -2,7 +2,8 @@ import React from 'react'
 
 function ProblemDisplay() {
   return (
-    <div className='App'>
+    <div className='display-container'>
+      <h1>Test</h1>
       <button>tester</button>
     </div>
   )
