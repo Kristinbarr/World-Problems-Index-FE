@@ -1,0 +1,15 @@
+export default [
+    'climate change',
+    'pollution',
+    'education',
+    'government corruption',
+    'unemployment',
+    'substance abuse',
+    'sexual violence',
+    'terrorism',
+    'malnourishment',
+    'privacy',
+    'income inequality',
+    'gender inequality',
+    'health care',
+];

@@ -6,17 +6,26 @@ import Logo from "../Logo.png";
 export default function Navigation() {
   return (
     <nav className="navDiv">
-      <NavLink exact activeClassName="active" to={"/"}>
-        <img src={Logo}></img>
-      </NavLink>
+      <div className="logoDiv">
+        <NavLink className="link" exact activeClassName="active" to={"/"}>
+          <img src={Logo}></img>
+        </NavLink>
+      </div>
 
-      <NavLink exact activeClassName="active" to={"/dashboard"}>
-        dashboard
-      </NavLink>
+      <div className="optionsDiv">
+        <NavLink
+          className="link"
+          exact
+          activeClassName="active"
+          to={"/dashboard"}
+        >
+          dashboard
+        </NavLink>
 
-      <NavLink activeClassName="active" to={"/Login"}>
-        log in
-      </NavLink>
+        <NavLink className="link" activeClassName="active" to={"/login"}>
+          log in
+        </NavLink>
+      </div>
     </nav>
   );
 }
