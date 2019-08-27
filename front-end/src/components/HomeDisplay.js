@@ -13,7 +13,6 @@ const HomeDisplay = () => {
         {data.map((item) => {
           return <div className='problem-bubble'>{item}</div>
         })}
-        ;
       </div>
     </div>
   )
