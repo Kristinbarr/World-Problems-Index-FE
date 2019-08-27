@@ -12,13 +12,27 @@
     padding-bottom: 3rem;
     border-bottom: 1px solid $grey-light;
 
+    @media (max-width: $mobile){
+      flex-flow: column;
+    }
+
+
     h1 {
       padding-right: 2rem;
       font-family: 'Orienta', Arial, Helvetica, sans-serif;
+
+      @media (max-width: $mobile){
+        padding: 3rem 0 3rem 0;
+      }
+  
     }
     p {
       padding-left: 2rem;
       max-width: 60%;
+
+      @media (max-width: $mobile){
+        max-width: 90%;
+      }
     }
   }
 
@@ -89,6 +103,11 @@
       align-items: center;
       border-top: 1px solid $grey-light;
       padding-top: 3rem;
+
+      @media (max-width: $mobile){
+        flex-flow: column;
+        margin: 2rem;
+      }
 
       h4 {
         font-family: 'Orienta', Arial, Helvetica, sans-serif;
