@@ -1,6 +1,9 @@
 import React from 'react'
 import data from '../data'
 
+// get request to view problem and it's data
+// new solution endpoint needs: problem name, userid, solution name
+
 function ProblemDisplay() {
   const solutionMockData = data.slice(0, 4)
   return (
