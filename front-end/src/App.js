@@ -11,7 +11,7 @@ function App() {
   return (
     <div className='App'>
       <Navigation />
-      <Route path='/' render={(props) => <HomeDisplay {...props} />} />
+      <Route exact path='/' render={(props) => <HomeDisplay {...props} />} />
       <Route
         path='/problem'
         render={(props) => <ProblemDisplay {...props} />}
