@@ -42,8 +42,10 @@ const Signup = (props) => {
   )
 }
 
-const mapStateToProps = () => {
-  return {}
+const mapStateToProps = (state) => {
+  return {
+    signingUp: state.signingUp
+  }
 }
 export default connect(
   mapStateToProps,
