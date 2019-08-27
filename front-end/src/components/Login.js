@@ -1,59 +1,54 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { login } from "../actions";
 
-// make a post request to retrieve a token from the api
-// when you have handled the token, navigate to the BubblePage route
-
-const Login = ({ history }) => {
-  axios
-    .post("http://localhost:5000/api/login", {
-      username: "Elyssia",
-      password: "lambdaschool"
-    })
-    .then(function(response) {
-      localStorage.setItem("token", response.data.payload);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+const Login = props => {
   const [creds, setCreds] = useState({ username: "", password: "" });
-
-  const handleChange = event => {
-    setCreds({ ...creds, [event.target.name]: event.target.value });
+  const handleChange = e => {
+    setCreds({ ...creds, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    axios
-      .post("http://localhost:5000/api/login", creds)
-      .then(res => {
-        console.log(res);
-        localStorage.setItem("token", res.data.payload);
-        history.push("/friends");
-      })
-      .catch(err => console.log(err.response));
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("creds", creds);
+    props.login(creds);
+    setCreds({ username: "", password: "" });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1> Welcome to the Bubble App! </h1>
-      <input
-        type="text"
-        name="username"
-        placeholder="username"
-        onChange={handleChange}
-        value={creds.username}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="password"
-        onChange={handleChange}
-        value={creds.password}
-      />
-      <button type="submit">Log In</button>
-    </form>
+    <div className="login">
+      <form onSubmit={handleSubmit}>
+        <h1>login</h1>
+        <label>username</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="username"
+          onChange={handleChange}
+          value={creds.username}
+        />
+        <label>password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          onChange={handleChange}
+          value={creds.password}
+        />
+        <button type="submit"> Login </button>
+        <p>
+          New user? Sign up <Link to="/signup">here.</Link>
+        </p>
+      </form>
+    </div>
   );
 };
 
-export default Login;
+const mapStateToProps = () => {
+  return {};
+};
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);

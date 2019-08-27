@@ -1,13 +1,14 @@
-import { SIGNUP_FETCHING, SIGNUP_SUCCESS, SIGNUP_FAILURE } from '../actions'
-import { LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions'
+import { SIGNUP_FETCHING, SIGNUP_SUCCESS, SIGNUP_FAILURE } from "../actions";
+import { LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions";
 
 export const initialState = {
+  signingUp: false,
   loggedin: false,
   loggedinLoading: false,
   problemList: [],
   problem: {},
-  error: ''
-}
+  error: ""
+};
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,7 +16,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         signingUp: true
-      }
+      };
     case SIGNUP_SUCCESS:
       return {
         ...state,
@@ -23,16 +24,35 @@ const userReducer = (state = initialState, action) => {
         user: {
           ...action.payload
         }
-      }
+      };
     case SIGNUP_FAILURE:
       return {
         ...state,
         signingUp: false,
         signUpErr: action.payload
-      }
+      };
+    case LOGIN_FETCHING:
+      return {
+        ...state,
+        signingUp: true
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        signingUp: false,
+        user: {
+          ...action.payload
+        }
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        signingUp: false,
+        signUpErr: action.payload
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default userReducer
+export default userReducer;
