@@ -16,12 +16,16 @@ function App() {
     <div className='App'>
       <Navigation />
       <Route exact path='/' render={(props) => <HomeDisplay {...props} />} />
-      <Route
-        path='/problems'
-        render={(props) => <ProblemDisplay {...props} />}
-      />
       <Route path='/login' render={(props) => <Login {...props} />} />
       <Route path='/signup' render={(props) => <Signup {...props} />} />
+      <Route
+        path='/problems/:id'
+        render={(props) => <ProblemDisplay {...props} />}
+      />
+      {/* <Route
+        path='/problems/:id/edit'
+        render={(props) => <EditProblem {...props} />}
+      /> */}
       <PrivateRoute
         exact
         path='/dashboard'

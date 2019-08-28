@@ -1,42 +1,48 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchSingleProblem } from '../actions'
 
 import data from '../data'
-import SolutionForm from './SolutionForm';
-
-// get request to view problem and it's data
-// new solution endpoint needs: problem name, userid, solution name
+import SolutionForm from './SolutionForm'
 
 const ProblemDisplay = (props) => {
+  console.log('props single', props)
+  const id = props.match.params.id
+  // const [problem, setProblem] = useState(props.problem)
+  const [prob, setProb] = useState([])
+  const [solutions, setSolutions] = useState([])
+  console.log('sols', props.problem.problemSolutions)
   const solutionMockData = data.slice(0, 4)
 
   useEffect(() => {
-    props.fetchSingleProblem()
-  }, [])
-  console.log('props single', props)
+    const fetch = props.fetchSingleProblem(id).then((data) => {
+      // if (!props.fetchingProblems) {
+      setProb(data)
+      // }
+    })
+    console.log('data', fetch)
+  }, [prob])
+  console.log('prob', prob)
+  // console.log('soltions', solutions)
+  console.log('arr', props.problem)
 
   return (
     <>
       <div className='problem-container'>
         <div className='problem-header'>
-          <h1>climate change</h1>
-          <p>
-            The global temperatures are rising, and are estimated to increase
-            from 2.6 degrees Celsius to 4.8 degrees Celsius by 2100. This would
-            cause more severe weather, crises with food and resources and the
-            spread of diseases.
-          </p>
+          <h1>{props.problem.title}</h1>
+          <p>{props.problem.description}</p>
         </div>
         <div className='problem-content'>
           <div className='problem-solutions-container'>
             <h4>Solutions</h4>
             <div className='problem-solutions'>
-              {solutionMockData.map((sol) => (
-                <div key={sol} className='problem-solutions-bubble'>
-                  {sol}
+              {/* {props.fetchingProblems ? (<p>Loading Solutions...</p>) : (solutions.map((sol) => (
+                <div key={sol._id} className='problem-solutions-bubble'>
+                  {sol.name}
                 </div>
-              ))}
+              )))
+              } */}
             </div>
           </div>
           <div className='problem-related-container'>
@@ -57,7 +63,7 @@ const ProblemDisplay = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    fetchingProblem: state.problemsReducer.fetchingProblem,
+    fetchingProblems: state.problemsReducer.fetchingProblems,
     problem: state.problemsReducer.problem
   }
 }
