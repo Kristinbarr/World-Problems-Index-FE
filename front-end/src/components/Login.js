@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { login } from "../actions";
 
 const Login = props => {
-  console.log('props: ', props)
   const [creds, setCreds] = useState({ username: "", password: "" });
 
   const handleChange = e => {
@@ -13,7 +12,6 @@ const Login = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("login creds", creds);
     props.login(creds).then(() => {
       props.history.push('/dashboard')
     })
@@ -57,7 +55,7 @@ const Login = props => {
 
 const mapStateToProps = (state) => {
   return {
-    signingUp: state.signingUp
+    signingUp: state.userReducer.signingUp
   }
 };
 export default connect(

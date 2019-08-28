@@ -22,15 +22,13 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingProblems: false,
-        user: {
-          ...action.payload
-        }
+        problemsList: [...state.problemsList, ...action.payload]
       }
     case PROBLEMS_FAILURE:
       return {
         ...state,
         fetchingProblems: false,
-        signUpErr: action.payload
+        error: action.payload
       }
     default:
       return state
