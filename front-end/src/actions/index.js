@@ -72,7 +72,7 @@ export const fetchSingleProblem = (id) => dispatch => {
       `https://the-world-problems-index.herokuapp.com/api/problems/${id}`
     )
     .then((res) => {
-      console.log('problems list res: ', res)
+      console.log('single problem res: ', res)
       dispatch({ type: SINGLE_PROBLEM_SUCCESS, payload: res.data })
     })
     .catch((err) => {
