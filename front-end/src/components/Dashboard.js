@@ -11,7 +11,7 @@ const Dashboard = (props) => {
   return (
     <div className='dashboard'>
       <div className='dashboard-header'>
-        <h1>{props.user.message}Test</h1>
+        <h1>Test</h1>
       </div>
       <div className='dashboard-content'>
         <div className='saved-problems'>
@@ -55,5 +55,5 @@ const mapStateToProps = (state) => {
 }
 export default connect(
   mapStateToProps,
-  {login}
+  {}
 )(Dashboard)
