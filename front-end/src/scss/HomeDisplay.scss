@@ -1,0 +1,31 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background: #f8f8f8;
+  width: 100%;
+  min-height: 50vh;
+  padding: 4rem;
+
+  .home-content {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    width: 1000px;
+
+    .home-headline {
+      font-family: 'Orienta', Arial, Helvetica, sans-serif;
+      margin: 0 2rem 2rem 2rem;
+      color: $grey-dark;
+    }
+    .problem-bubble {
+      margin: 1rem;
+      border-radius: 30px;
+      border: 1px solid $grey-light;
+      font-size: 1.6rem;
+      max-height: 4.4rem;
+      color: $grey-dark;
+      background: white;
+    }
+  }
+}

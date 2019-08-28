@@ -1,0 +1,103 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'Navigation';
+@import 'HomeDisplay';
+@import 'ProblemDisplay';
+@import 'Dashboard';
+@import 'Login';
+@import 'Signup';
+@import 'Footer';
+@import url('https://fonts.googleapis.com/css?family=Orienta|Poiret+One&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: $grey-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  @include font(3rem, 3.2rem);
+}
+
+h2 {
+  @include font(2.6rem, 2.8rem);
+}
+
+h3 {
+  @include font(2.2rem, 2.4rem);
+}
+
+h4 {
+  @include font(2rem, 2.2rem);
+}
+
+h5 {
+  @include font(1.8rem, 2rem);
+}
+
+h6 {
+  @include font(1.6rem, 1.8rem);
+}
+
+a {
+  font-size: 1.8rem;
+  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+input {
+  padding: 0.6rem;
+  margin: 1rem;
+  border-radius: 4px;
+  border: 1px solid $grey-light;
+  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  color: $grey-dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  padding: 1rem 2.4rem;
+  margin: 1rem;
+  border-radius: 4px;
+  border: none;
+  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button:hover {
+  box-shadow: 0 0 3px 3px rgba($grey-light, .3);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  
+}

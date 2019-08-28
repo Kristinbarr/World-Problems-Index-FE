@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route } from 'react-router-dom'
+
+import Navigation from './components/Navigation'
+import HomeDisplay from './components/HomeDisplay'
+import ProblemDisplay from './components/ProblemDisplay'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import Dashboard from './components/Dashboard'
+import PrivateRoute from './components/PrivateRoute'
+import Footer from './components/Footer'
+import '../src/scss/App.scss'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Navigation />
+      <Route exact path='/' render={(props) => <HomeDisplay {...props} />} />
+      <Route path='/login' render={(props) => <Login {...props} />} />
+      <Route path='/signup' render={(props) => <Signup {...props} />} />
+      <Route
+        path='/problems/:id'
+        render={(props) => <ProblemDisplay {...props} />}
+      />
+      {/* <Route
+        path='/problems/:id/edit'
+        render={(props) => <EditProblem {...props} />}
+      /> */}
+      <PrivateRoute
+        exact
+        path='/dashboard'
+        component={(props) => <Dashboard {...props} />}
+      />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
