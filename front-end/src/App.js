@@ -17,7 +17,7 @@ function App() {
       <Navigation />
       <Route exact path='/' render={(props) => <HomeDisplay {...props} />} />
       <Route
-        path='/problem'
+        path='/problems'
         render={(props) => <ProblemDisplay {...props} />}
       />
       <Route path='/login' render={(props) => <Login {...props} />} />
