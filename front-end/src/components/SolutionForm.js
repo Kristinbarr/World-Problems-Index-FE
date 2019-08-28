@@ -38,7 +38,7 @@ class SolutionForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input
               type='text'
-              name='solution'
+              name='name'
               value={this.state.solution}
               onChange={this.handleChange}
             />
