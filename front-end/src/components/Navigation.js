@@ -22,7 +22,7 @@ export default function Navigation() {
         </NavLink>
 
         <NavLink className="link" activeClassName="active" to={"/login"}>
-          log in
+          login
         </NavLink>
       </div>
     </nav>

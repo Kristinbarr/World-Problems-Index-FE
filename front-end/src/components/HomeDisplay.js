@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { fetchProblems } from '../actions'
 
 const HomeDisplay = (props) => {
-
+  // console.log('props HOME DISPLAY', props)
+  // const [problemArr, setProblemArr] = useState([])
   useEffect(() => {
     props.fetchProblems()
   }, [])
@@ -18,7 +19,7 @@ const HomeDisplay = (props) => {
         </h2>
         {props.problemsList.map((item) => {
           return (
-            <Link to={`problems/${item.title}`} key={item.id}>
+            <Link to={`problems/${item.id}`} key={item.id} >
               <button className='problem-bubble'>{item.title}</button>
             </Link>
           )
