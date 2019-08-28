@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { fetchSingleProblem } from '../actions'
 
 import data from '../data'
+import SolutionForm from './SolutionForm';
 
 // get request to view problem and it's data
 // new solution endpoint needs: problem name, userid, solution name
 
-function ProblemDisplay() {
+const ProblemDisplay = (props) => {
   const solutionMockData = data.slice(0, 4)
+
+  useEffect(() => {
+    props.fetchSingleProblem()
+  }, [])
+  console.log('props single', props)
+
   return (
     <>
       <div className='problem-container'>
@@ -41,13 +49,7 @@ function ProblemDisplay() {
               ))}
             </div>
           </div>
-          <div className='solution-form'>
-            <h4>add a solution to this problem</h4>
-            <form>
-              <input />
-              <button>submit</button>
-            </form>
-          </div>
+          <SolutionForm />
         </div>
       </div>
     </>
@@ -55,10 +57,11 @@ function ProblemDisplay() {
 }
 const mapStateToProps = (state) => {
   return {
-    fetchingProblem: state.problemsReducer.fetchingProblem
+    fetchingProblem: state.problemsReducer.fetchingProblem,
+    problem: state.problemsReducer.problem
   }
 }
 export default connect(
-  mapStateToProps, {}
-  // { fetchSingleProblem }
+  mapStateToProps,
+  { fetchSingleProblem }
 )(ProblemDisplay)
