@@ -4,12 +4,14 @@ import {} from '../actions'
 import data from '../data'
 
 const Dashboard = (props) => {
-  const solutionMockData = data.slice(0, 4)
-
+  const solutionMockData = data.slice(0, 4);
+  console.log('Dashboard User object: ', props.user)
+  console.log('List object: ', props.problemsList)
+  console.log('Problem object: ', props.problem)
   return (
     <div className='dashboard'>
       <div className='dashboard-header'>
-        <h1>Welcome, *name*!</h1>
+        <h1>{props.user.message}Test</h1>
       </div>
       <div className='dashboard-content'>
         <div className='saved-problems'>
@@ -49,10 +51,9 @@ const Dashboard = (props) => {
 const mapStateToProps = (state) => {
   return {
     fetchingProblems: state.problemsReducer.fetchingProblems,
-    problem: state.problemsReducer.problem
   }
 }
 export default connect(
   mapStateToProps,
-  {}
+  {login}
 )(Dashboard)
