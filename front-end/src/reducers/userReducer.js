@@ -3,8 +3,7 @@ import { LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions";
 
 export const initialState = {
   signingUp: false,
-  problemList: [],
-  problem: {},
+  user: {},
   signUpErr: '',
   loginErr: ""
 };
