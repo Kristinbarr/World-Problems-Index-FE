@@ -11,15 +11,21 @@ import {
 } from '../actions'
 
 import {
-  SUBMIT_PROBLEM_FETCHING,
+  SUBMIT_PROBLEM_START,
   SUBMIT_PROBLEM_SUCCESS,
   SUBMIT_PROBLEM_FAILURE
 } from '../actions'
 
 import {
-  SUBMIT_SOLUTION_FETCHING,
+  SUBMIT_SOLUTION_START,
   SUBMIT_SOLUTION_SUCCESS,
   SUBMIT_SOLUTION_FAILURE
+} from '../actions'
+
+import {
+  DELETE_SAVED_START,
+  DELETE_SAVED_SUCCESS,
+  DELETE_SAVED_FAILURE
 } from '../actions'
 
 export const initialState = {
@@ -50,7 +56,7 @@ const problemsReducer = (state = initialState, action) => {
         fetchingProblems: false,
         error: action.payload
       }
-      // SINGLE PROBLEM
+    // SINGLE PROBLEM
     case SINGLE_PROBLEM_FETCHING:
       return {
         ...state,
@@ -68,8 +74,8 @@ const problemsReducer = (state = initialState, action) => {
         fetchingProblems: false,
         error: action.payload
       }
-      // SUBMIT PROBLEM
-    case SUBMIT_PROBLEM_FETCHING:
+    // SUBMIT PROBLEM
+    case SUBMIT_PROBLEM_START:
       return {
         ...state,
         isSubmitting: true
@@ -87,8 +93,8 @@ const problemsReducer = (state = initialState, action) => {
         isSubmitting: false,
         error: action.payload
       }
-      // SUBMIT SOLUTION
-    case SUBMIT_SOLUTION_FETCHING:
+    // SUBMIT SOLUTION
+    case SUBMIT_SOLUTION_START:
       return {
         ...state,
         isSubmitting: true
@@ -100,6 +106,24 @@ const problemsReducer = (state = initialState, action) => {
         solution: action.payload
       }
     case SUBMIT_SOLUTION_FAILURE:
+      return {
+        ...state,
+        isSubmitting: false,
+        error: action.payload
+      }
+    // DELETE
+    case DELETE_SAVED_START:
+      return {
+        ...state,
+        isSubmitting: true
+      }
+    case DELETE_SAVED_SUCCESS:
+      return {
+        ...state,
+        isSubmitting: false,
+        problemsList: state.problemsList.filter(el => el.id !== action.payload.id)
+      }
+    case DELETE_SAVED_FAILURE:
       return {
         ...state,
         isSubmitting: false,

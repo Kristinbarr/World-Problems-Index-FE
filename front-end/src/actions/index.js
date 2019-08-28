@@ -79,19 +79,38 @@ export const fetchSingleProblem = (id) => dispatch => {
       console.log('token err: ', err)
       dispatch({ type: SINGLE_PROBLEM_FAILURE, payload: err })
     })
-};
+  };
+
+export const SUBMIT_PROBLEM_START = 'SUBMIT_PROBLEM_START'
+export const SUBMIT_PROBLEM_SUCCESS = 'SUBMIT_PROBLEM_SUCCESS'
+export const SUBMIT_PROBLEM_FAILURE = 'SUBMIT_PROBLEM_FAILURE'
+
+export const submitProblem = (problem) => dispatch => {
+  return (dispatch) => {
+    dispatch({ type: SUBMIT_PROBLEM_START })
+    axios
+      .post(
+        'http://localhost:3000', problem)
+      .then((res) => {
+        console.log('res',res)
+        dispatch({ type: SUBMIT_PROBLEM_SUCCESS, payload: res.data.data })
+      })
+      .catch((err) => {
+        dispatch({ type: SUBMIT_PROBLEM_FAILURE, payload: err.response })
+      })
+  }
+}
 
 export const SUBMIT_SOLUTION_START = 'SUBMIT_SOLUTION_START'
 export const SUBMIT_SOLUTION_SUCCESS = 'SUBMIT_SOLUTION_SUCCESS'
 export const SUBMIT_SOLUTION_FAILURE = 'SUBMIT_SOLUTION_FAILURE'
 
-// THUNK contains asynchronous function and dispatches objects
 export const submitSolution = (solution) => dispatch => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SOLUTION_START })
     axios
       .post(
-        'http://localhost:3333/smurfs', smurf)
+        'http://localhost:3000', solution)
       .then((res) => {
         console.log('res',res)
         dispatch({ type: SUBMIT_SOLUTION_SUCCESS, payload: res.data.data })
@@ -102,3 +121,22 @@ export const submitSolution = (solution) => dispatch => {
   }
 }
 
+export const DELETE_SAVED_START = 'DELETE_SAVED_START'
+export const DELETE_SAVED_SUCCESS = 'DELETE_SAVED_SUCCESS'
+export const DELETE_SAVED_FAILURE = 'DELETE_SAVED_FAILURE'
+
+export const deleteSaved = () => dispatch => {
+  return (dispatch) => {
+    dispatch({ type: DELETE_SAVED_START })
+    axios
+      .delete(
+        'http://localhost:3000')
+      .then((res) => {
+        console.log('res',res)
+        dispatch({ type: DELETE_SAVED_SUCCESS, payload: res.data.data })
+      })
+      .catch((err) => {
+        dispatch({ type: DELETE_SAVED_FAILURE, payload: err.response })
+      })
+  }
+}
