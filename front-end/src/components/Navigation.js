@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Login from "../components/Login";
 import Logo from "../Logo.png";
 
 export default function Navigation() {
@@ -23,7 +22,7 @@ export default function Navigation() {
         </NavLink>
 
         <NavLink className="link" activeClassName="active" to={"/login"}>
-          log in
+          login
         </NavLink>
       </div>
     </nav>
