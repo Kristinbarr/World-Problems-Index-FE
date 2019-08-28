@@ -21,7 +21,7 @@ const Login = props => {
   return (
     <>
       {props.signingUp ? (
-        <div>Loading....</div>
+        <p>Loading....</p>
       ) : (
         <div className='login'>
           <form onSubmit={handleSubmit}>
