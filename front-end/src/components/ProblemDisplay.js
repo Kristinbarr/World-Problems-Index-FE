@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import data from '../data'
 
 // get request to view problem and it's data
@@ -57,6 +59,6 @@ const mapStateToProps = (state) => {
   }
 }
 export default connect(
-  mapStateToProps,
-  { fetchSingleProblem }
+  mapStateToProps, {}
+  // { fetchSingleProblem }
 )(ProblemDisplay)
