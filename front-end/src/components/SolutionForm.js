@@ -1,14 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { postSolution } from '../actions'
+import { submitSolution } from '../actions'
 
 class SolutionForm extends React.Component {
   constructor() {
     super()
     this.state = {
       problem_id: '',
-      solution: '',
-      user: ''
+      solution: ''
     }
   }
 
@@ -18,11 +17,10 @@ class SolutionForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    postSolution(this.state.solution)
+    submitSolution(this.state.solution)
     this.setState({
       problem_id: '',
-      solution: '',
-      user: ''
+      solution: ''
     })
   }
 
@@ -31,7 +29,7 @@ class SolutionForm extends React.Component {
       <>
         <div className='solution-form'>
           <h4>add a solution to this problem</h4>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <input type='text' name='solution' value={this.state.solution} onChange={this.handleChange} />
             <button>submit</button>
           </form>
@@ -43,11 +41,11 @@ class SolutionForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    submitting: state.problemsReducer.submitting,
+    isSubmitting: state.problemsReducer.isSubmitting,
     solution: state.problemsReducer.solution
   }
 }
 export default connect(
   mapStateToProps,
-  {}
+  {submitSolution}
 )(SolutionForm)
