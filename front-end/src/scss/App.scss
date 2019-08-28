@@ -4,6 +4,7 @@
 @import 'Navigation';
 @import 'HomeDisplay';
 @import 'ProblemDisplay';
+@import 'Dashboard';
 @import 'Login';
 @import 'Signup';
 @import 'Footer';
@@ -17,9 +18,10 @@ html {
   font-size: 62.5%;
 }
 
-body, h1, h2, h3, h4, h5, h6 {
+body {
   font-family: 'Orienta', Arial, Helvetica, sans-serif;
   text-align: center;
+  color: $grey-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -5,7 +5,6 @@
 }
 
 @mixin font($size, $lh) {
-  font-family: 'Ropa Sans', sans-serif;
   font-size: $size;
   line-height: $lh;
 }
