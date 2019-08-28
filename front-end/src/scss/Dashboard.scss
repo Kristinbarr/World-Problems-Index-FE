@@ -1,0 +1,9 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  .dashboard-header {
+    h1 {
+      font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+    }
+  }
+}
