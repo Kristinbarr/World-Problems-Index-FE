@@ -11,20 +11,21 @@ const ProblemDisplay = (props) => {
   // const [problem, setProblem] = useState(props.problem)
   const [prob, setProb] = useState([])
   const [solutions, setSolutions] = useState([])
+
   console.log('sols', props.problem.problemSolutions)
   const solutionMockData = data.slice(0, 4)
 
   useEffect(() => {
-    const fetch = props.fetchSingleProblem(id).then((data) => {
+    props.fetchSingleProblem(id).then((data) => {
       // if (!props.fetchingProblems) {
+        console.log('data', data)
       setProb(data)
       // }
     })
-    console.log('data', fetch)
   }, [prob])
-  console.log('prob', prob)
+  // console.log('prob', prob)
   // console.log('soltions', solutions)
-  console.log('arr', props.problem)
+  // console.log('arr', props.problem)
 
   return (
     <>
@@ -37,12 +38,15 @@ const ProblemDisplay = (props) => {
           <div className='problem-solutions-container'>
             <h4>Solutions</h4>
             <div className='problem-solutions'>
-              {/* {props.fetchingProblems ? (<p>Loading Solutions...</p>) : (solutions.map((sol) => (
-                <div key={sol._id} className='problem-solutions-bubble'>
-                  {sol.name}
-                </div>
-              )))
-              } */}
+              {/* {props.fetchingProblems ? (
+                <p>Loading Solutions...</p>
+              ) : (
+                prob.problem.problemSolutions.map((sol) => (
+                  <div key={sol._id} className='problem-solutions-bubble'>
+                    {sol.name}
+                  </div>
+                ))
+              )} */}
             </div>
           </div>
           <div className='problem-related-container'>
@@ -55,7 +59,7 @@ const ProblemDisplay = (props) => {
               ))}
             </div>
           </div>
-          <SolutionForm />
+          <SolutionForm id={id} />
         </div>
       </div>
     </>

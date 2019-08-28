@@ -5,8 +5,7 @@ import data from '../data'
 import {Link} from "react-router-dom";
 
 const Dashboard = (props) => {
-  const solutionMockData = data.slice(0, 4)
-
+  const solutionMockData = data.slice(0, 4);
   return (
     <div className='dashboard'>
       <div className='dashboard-header'>
@@ -84,7 +83,6 @@ const Dashboard = (props) => {
 const mapStateToProps = (state) => {
   return {
     fetchingProblems: state.problemsReducer.fetchingProblems,
-    problem: state.problemsReducer.problem
   }
 }
 export default connect(
