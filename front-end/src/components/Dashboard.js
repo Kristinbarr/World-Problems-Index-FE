@@ -5,9 +5,6 @@ import data from '../data'
 
 const Dashboard = (props) => {
   const solutionMockData = data.slice(0, 4);
-  console.log('Dashboard User object: ', props.user)
-  console.log('List object: ', props.problemsList)
-  console.log('Problem object: ', props.problem)
   return (
     <div className='dashboard'>
       <div className='dashboard-header'>
