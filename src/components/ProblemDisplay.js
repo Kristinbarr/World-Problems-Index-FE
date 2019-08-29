@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { fetchSingleProblem } from '../actions'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchSingleProblem } from '../actions';
 
-import SolutionForm from './SolutionForm'
-import ProblemSolutionsList from './ProblemSolutionsList'
+import SolutionForm from './SolutionForm';
+import ProblemSolutionList from './ProblemSolutionList';
+import RelatedProblemList from '../components/RelatedProblemList';
 
-const ProblemDisplay = (props) => {
-  const id = props.match.params.id
+const ProblemDisplay = props => {
+  const id = props.match.params.id;
 
   useEffect(() => {
-    props.fetchSingleProblem(id)
-  }, [])
+    props.fetchSingleProblem(id);
+  }, []);
 
+  console.log(props.problem);
   return (
     <div className='problem-container'>
       <div className='problem-header'>
@@ -35,21 +37,24 @@ const ProblemDisplay = (props) => {
                   {sol}
                 </button>
               ))} */}
+            <RelatedProblemList
+              relatedProblems={props.problem.relatedProblems}
+            />
           </div>
         </div>
         <SolutionForm id={id} />
       </div>
     </div>
-  )
-}
-const mapStateToProps = (state) => {
-  console.log('mapstate', state)
+  );
+};
+const mapStateToProps = state => {
+  console.log('mapstate', state);
   return {
     fetchingProblems: state.problemsReducer.fetchingProblems,
-    problem: state.problemsReducer.problem
-  }
-}
+    problem: state.problemsReducer.problem,
+  };
+};
 export default connect(
   mapStateToProps,
-  { fetchSingleProblem }
-)(ProblemDisplay)
+  { fetchSingleProblem },
+)(ProblemDisplay);
