@@ -7,7 +7,7 @@ class SolutionForm extends React.Component {
     super(props)
     this.state = {
       name: '',
-      userId: '123',
+      userId: '123', //TODO: get live user ID
       problemId: ''
     }
   }

@@ -10,6 +10,12 @@ import {
   SINGLE_PROBLEM_FAILURE,
 } from '../actions';
 
+// import {
+//   RELATED_PROBLEMS_FETCHING,
+//   RELATED_PROBLEMS_SUCCESS,
+//   RELATED_PROBLEMS_FAILURE
+// } from '../actions'
+
 import {
   SUBMIT_PROBLEM_START,
   SUBMIT_PROBLEM_SUCCESS,
@@ -22,18 +28,18 @@ import {
   SUBMIT_SOLUTION_FAILURE,
 } from '../actions';
 
-import {
-  DELETE_SAVED_START,
-  DELETE_SAVED_SUCCESS,
-  DELETE_SAVED_FAILURE,
-} from '../actions';
-
 import { ADD_VOTE_START, ADD_VOTE_SUCCESS, ADD_VOTE_FAILURE } from '../actions';
 import {
   REMOVE_VOTE_START,
   REMOVE_VOTE_SUCCESS,
   REMOVE_VOTE_FAILURE,
 } from '../actions';
+import {
+  DELETE_SOLUTION_START,
+  DELETE_SOLUTION_SUCCESS,
+  DELETE_SOLUTION_FAILURE
+} from '../actions'
+
 
 export const initialState = {
   fetchingProblems: false,
@@ -79,8 +85,6 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingProblems: false,
-        error: action.payload,
-      };
     // SUBMIT PROBLEM
     case SUBMIT_PROBLEM_START:
       return {
@@ -119,20 +123,20 @@ const problemsReducer = (state = initialState, action) => {
         error: action.payload,
       };
     // DELETE
-    case DELETE_SAVED_START:
+    case DELETE_SOLUTION_START:
       return {
         ...state,
-        isSubmitting: true,
-      };
-    case DELETE_SAVED_SUCCESS:
+        isSubmitting: true
+      }
+    case DELETE_SOLUTION_SUCCESS:
       return {
         ...state,
         isSubmitting: false,
-        problemsList: state.problemsList.filter(
-          el => el.id !== action.payload.id,
-        ),
-      };
-    case DELETE_SAVED_FAILURE:
+        // problemsList: state.problemsList.filter(
+        //   (el) => el.id !== action.payload.id
+        // )
+      }
+    case DELETE_SOLUTION_FAILURE:
       return {
         ...state,
         isSubmitting: false,

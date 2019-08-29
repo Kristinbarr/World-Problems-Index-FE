@@ -26,7 +26,7 @@ const ProblemDisplay = props => {
           {props.fetchingProblems ? (
             <div>...Loading</div>
           ) : (
-            <ProblemSolutionList solutions={props.problem.problemSolutions} />
+            <ProblemSolutionsList solutions={props.problem.problemSolutions} />
           )}
         </div>
         <div className='problem-related-container'>
