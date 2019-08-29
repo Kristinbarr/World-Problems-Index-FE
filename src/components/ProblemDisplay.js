@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchSingleProblem } from '../actions'
 
 import SolutionForm from './SolutionForm'
-import ProblemSolutionList from './ProblemSolutionList'
+import ProblemSolutionsList from './ProblemSolutionsList'
 
 const ProblemDisplay = (props) => {
   const id = props.match.params.id
@@ -24,7 +24,7 @@ const ProblemDisplay = (props) => {
           {props.fetchingProblems ? (
             <div>...Loading</div>
           ) : (
-            <ProblemSolutionList solutions={props.problem.problemSolutions} />
+            <ProblemSolutionsList solutions={props.problem.problemSolutions} />
           )}
         </div>
         <div className='problem-related-container'>
