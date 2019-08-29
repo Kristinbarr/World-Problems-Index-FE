@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { deleteSolution } from '../actions'
+import { fetchUser, deleteSolution } from '../actions'
 import UserSavedProblemsList from './UserSavedProblemsList'
 import UserProblemContributionsList from './UserProblemContributionsList'
 import UserSolutionContributionsList from './UserSolutionContributionsList'
 import UserProblemForm from './UserProblemForm'
 
-// import data from '../data'
-
 const Dashboard = (props) => {
+  // const [userData, setUserData] = useState()
   console.log('dash props', props)
-  // const solutionMockData = data.slice(0, 4)
+  // console.log('dash user', props.user.user)
+  const userId = props.user.user.id
+  console.log('id', userId)
+
+  useEffect(() => {
+    props.fetchUser(userId)
+    // .then((res)=> {
+    //   console.log('dash fetch res', res)
+    //   // setUserData(res)
+    // })
+    console.log('inside useeffect', props.user)
+  })
+  console.log('props user', props.user)
+
   return (
     <div className='dashboard'>
       <div className='dashboard-header'>
@@ -22,9 +34,13 @@ const Dashboard = (props) => {
         </div>
       </div>
       <div className='dashboard-content'>
-        <UserSavedProblemsList />
-        <UserProblemContributionsList />
-        <UserSolutionContributionsList />
+        {props.user.userData === undefined ? null : (
+          <>
+            <UserSavedProblemsList userData={props.user.userData} />
+            <UserProblemContributionsList />
+            <UserSolutionContributionsList />
+          </>
+        )}
       </div>
       <UserProblemForm />
     </div>
@@ -38,5 +54,5 @@ const mapStateToProps = (state) => {
 }
 export default connect(
   mapStateToProps,
-  { deleteSolution }
+  { fetchUser, deleteSolution }
 )(Dashboard)
