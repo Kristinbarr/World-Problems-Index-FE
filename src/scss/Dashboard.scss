@@ -3,8 +3,8 @@
   justify-content: center;
   flex-flow: column;
   margin: 0 auto 0 auto;
- 
-  h4{
+
+  h4 {
     text-align: start;
     margin-left: 3rem;
   }
@@ -14,7 +14,7 @@
     width: 100%;
     margin: auto;
 
-    @media(width: $mobile){
+    @media (width: $mobile) {
       flex-flow: column;
     }
 
@@ -33,46 +33,42 @@
       margin-bottom: 3rem;
       font-size: 4rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid lightgray;
+      // border-bottom: 1px solid lightgray;
 
-      @media(width: $mobile){
+      @media (width: $mobile) {
         border: none;
       }
-
     }
 
-
-    .first-half {
+    .title {
       display: flex;
       width: 68%;
       justify-content: flex-end;
     }
 
-    .second-half {
+    .logout {
       display: flex;
       width: 45%;
       justify-content: flex-end;
 
-      @media(width: $mobile){
-        button{
+      @media (width: $mobile) {
+        button {
           width: 10rem;
           margin-left: 6rem;
         }
       }
     }
 
-
-    .first-half, .second-half{
-      @media(width: $mobile){
+    .title,
+    .logout {
+      @media (width: $mobile) {
         flex-flow: column;
         // width: 100%;
         width: 45%;
         justify-content: center;
       }
     }
-
   }
-
 
   .dashboard-content {
     display: flex;
@@ -80,8 +76,7 @@
     justify-content: center;
     width: 110rem;
 
-
-    @media(width: $mobile){
+    @media (width: $mobile) {
       flex-flow: column;
     }
   }
@@ -94,11 +89,10 @@
     width: 33%;
     margin: 0;
 
-    @media(width: $mobile){
+    @media (width: $mobile) {
       margin: 0 4rem 5rem 4rem;
       padding-bottom: 5rem;
       border-bottom: 1px solid lightgray;
-
     }
 
     button {
@@ -106,53 +100,46 @@
       border-radius: 30px;
       margin: 2rem 2rem 2rem 2rem; //
       padding-left: 1rem;
-      ;
       padding-right: 3rem;
       text-align: left;
-
     }
 
-    .bubble-div{
+    .bubble-div {
       display: flex;
       flex-flow: column;
       width: 100%;
     }
 
-    .problem-bubble{
+    .problem-bubble {
       margin-bottom: 0;
     }
 
-    .bubble-top-info{
+    .bubble-top-info {
       display: flex;
       flex-flow: row;
       margin-bottom: 0;
 
-      
-      a{
+      a {
         text-decoration: underline;
       }
     }
-    .bubble-top-info div{
+    .bubble-top-info div {
       margin-top: 2rem;
     }
 
-    .bubble-bottom-info{
-      margin-top: .5rem;
+    .bubble-bottom-info {
+      margin-top: 0.5rem;
       margin-left: 3.2rem;
       text-align: start;
-
-
     }
-
   }
-
 
   .saved-problems-list,
   .problem-contributions-list {
     button {
       background: #585858;
       color: white;
-      &:hover{
+      &:hover {
         background: white;
         color: #585858;
         border: 1px solid #585858;
@@ -167,5 +154,4 @@
       border: 1px solid #585858;
     }
   }
-
 }

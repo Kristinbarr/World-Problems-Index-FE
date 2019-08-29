@@ -1,0 +1,38 @@
+.problem-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: $grey-white;
+  padding: 1rem;
+
+  h2 {
+    font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+    margin: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    h6 {
+      margin-top: 1rem;
+    }
+    input {
+      margin: 0;
+    }
+    textarea {
+      padding: 0.6rem;
+      border-radius: 4px;
+      border: 1px solid $grey-light;
+      font-family: 'Orienta', Arial, Helvetica, sans-serif;
+      font-size: 1.4rem;
+      color: $grey-dark;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button {
+      background: $grey;
+      margin: 1.6rem 0;
+    }
+  }
+}
