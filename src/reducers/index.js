@@ -1,7 +1,10 @@
-import { combineReducers } from 'redux'
-import userReducer from './userReducer'
-import problemsReducer from './problemsReducer'
+import { combineReducers } from 'redux';
+import userReducer from './userReducer';
+import userDataReducer from './userDataReducer';
+import problemsReducer from './problemsReducer';
 
 export default combineReducers({
-  userReducer, problemsReducer
-})
+  userReducer,
+  userDataReducer,
+  problemsReducer,
+});
