@@ -1,7 +1,7 @@
 .dashboard {
   display: flex;
   justify-content: center;
-  flex-flow: column;
+  flex-direction: column;
   margin: 0 auto 0 auto;
 
   h4 {
@@ -82,10 +82,9 @@
   }
 
   .saved-problems,
-  .problem-contributions,
-  .solution-contributions {
+  .problem-contributions {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     width: 33%;
     margin: 0;
 
