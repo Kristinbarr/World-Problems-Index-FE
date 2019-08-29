@@ -3,6 +3,7 @@
   justify-content: center;
   flex-direction: column;
   margin: 0 auto 0 auto;
+  
 
   h4 {
     text-align: start;
@@ -75,6 +76,8 @@
     flex-flow: row;
     justify-content: center;
     width: 110rem;
+    margin-bottom: 5rem;
+    
 
     @media (width: $mobile) {
       flex-flow: column;
@@ -138,11 +141,12 @@
     button {
       background: #585858;
       color: white;
-      &:hover {
+      border: 1px solid transparent;
+
+      &:hover{
         background: white;
         color: #585858;
         border: 1px solid #585858;
-        height: 38.5px;
       }
     }
   }
