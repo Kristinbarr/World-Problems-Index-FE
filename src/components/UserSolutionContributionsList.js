@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {} from '../actions'
+import { deleteSolution } from '../actions'
 import data from '../data'
 
 const UserSolutionContributionsList = (props) => {
@@ -18,7 +18,7 @@ const UserSolutionContributionsList = (props) => {
               </button>
               <div>
                 <p>1,234 votes</p>
-                <p>delete</p>
+                <p onClick={props.deleteSolution} className='delete'>delete</p>
               </div>
             </div>
             <div className='bubble-bottom-info'>
@@ -38,5 +38,5 @@ const mapStateToProps = (state) => {
 }
 export default connect(
   mapStateToProps,
-  {}
+  {deleteSolution}
 )(UserSolutionContributionsList)
