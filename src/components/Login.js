@@ -1,22 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { login } from "../actions";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { login, fetchUser } from '../actions'
 
-const Login = props => {
-  const [creds, setCreds] = useState({ username: "", password: "" });
+const Login = (props) => {
+  const [creds, setCreds] = useState({ username: '', password: '' })
 
-  const handleChange = e => {
-    setCreds({ ...creds, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => {
+    setCreds({ ...creds, [e.target.name]: e.target.value })
+  }
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault()
     props.login(creds).then(() => {
       props.history.push('/dashboard')
-    });
-    setCreds({ username: "", password: "" });
-  };
+    // }).then(()=> {
+    //   props.fetchUser(props.user.user.id)
+    })
+    console.log('login props', props)
+  }
 
   return (
     <>
@@ -24,24 +26,28 @@ const Login = props => {
         <p>Loading....</p>
       ) : (
         <div className='login'>
+          <h1>login</h1>
           <form onSubmit={handleSubmit}>
-            <h1>login</h1>
-            <label>username</label>
-            <input
-              type='text'
-              name='username'
-              placeholder='username'
-              onChange={handleChange}
-              value={creds.username}
-            />
-            <label>password</label>
-            <input
-              type='password'
-              name='password'
-              placeholder='password'
-              onChange={handleChange}
-              value={creds.password}
-            />
+            <div className='login-username'>
+              <label>username</label>
+              <input
+                type='text'
+                name='username'
+                placeholder='username'
+                onChange={handleChange}
+                value={creds.username}
+              />
+            </div>
+            <div className='login-password'>
+              <label>password</label>
+              <input
+                type='password'
+                name='password'
+                placeholder='password'
+                onChange={handleChange}
+                value={creds.password}
+              />
+            </div>
             <button>Login</button>
           </form>
           <p>
@@ -51,14 +57,15 @@ const Login = props => {
       )}
     </>
   )
-};
+}
 
 const mapStateToProps = (state) => {
   return {
     signingUp: state.userReducer.signingUp,
+    user: state.userReducer.user
   }
-};
+}
 export default connect(
   mapStateToProps,
-  { login }
-)(Login);
+  { login, fetchUser }
+)(Login)

@@ -9,49 +9,52 @@ const Signup = (props) => {
     setCreds({ ...creds, [e.target.name]: e.target.value })
   }
 
-  console.log('signup props',props)
   const handleSubmit = (e) => {
-    e.preventDefault();
-    props.signup(creds).then(() => {
-      props.history.push('/dashboard')
-    })
-    console.log('e.target', e.target)
-    console.log('signup user object: ', props.user);
+    e.preventDefault()
+    props.signup(creds).then(() => props.history.push('/dashboard'))
     setCreds({ username: '', password: '' })
   }
+  // console.log('signup props', props)
 
   return (
-    <div className='signup'>
-      {!props.signingUp ?
-        (<form onSubmit={handleSubmit}>
+    <>
+      {!props.signingUp ? (
+        <div className='signup'>
           <h1>Sign Up</h1>
-          <label>username</label>
-          <input
-            type='text'
-            name='username'
-            placeholder='username'
-            onChange={handleChange}
-            value={creds.username}
-          />
-          <label>password</label>
-          <input
-            type='password'
-            name='password'
-            placeholder='password'
-            onChange={handleChange}
-            value={creds.password}
-          />
-          <button type='submit'>submit</button>
-        </form>)
-      :
-      (<p>Loading...</p>)}
-    </div>
+          <form onSubmit={handleSubmit}>
+            <div className='signup-username'>
+              <label>username</label>
+              <input
+                type='text'
+                name='username'
+                placeholder='username'
+                onChange={handleChange}
+                value={creds.username}
+              />
+            </div>
+            <div className='signup-password'>
+              <label>password</label>
+              <input
+                type='password'
+                name='password'
+                placeholder='password'
+                onChange={handleChange}
+                value={creds.password}
+              />
+            </div>
+            <button type='submit'>Submit</button>
+          </form>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    signingUp: state.userReducer.signingUp,
+    signingUp: state.userReducer.signingUp
   }
 }
 export default connect(

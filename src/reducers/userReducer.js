@@ -5,6 +5,7 @@ import { USER_FETCHING, USER_SUCCESS, USER_FAILURE } from "../actions";
 export const initialState = {
   signingUp: false,
   user: {},
+  userData: {},
   error: '',
 };
 
@@ -53,7 +54,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         signingUp: false,
-        user: action.payload
+        userData: action.payload
       };
     case USER_FAILURE:
       return {

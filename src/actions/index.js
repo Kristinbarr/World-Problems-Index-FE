@@ -5,7 +5,7 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 
 export const signup = user => dispatch => {
-  console.log('User: ', user);
+  console.log('SIGNUP user: ', user);
   dispatch({ type: SIGNUP_FETCHING });
   return axios
     .post(
@@ -28,7 +28,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const login = user => dispatch => {
-  console.log('loggedinUser: ', user);
+  console.log('LOGIN user: ', user);
   dispatch({ type: LOGIN_FETCHING });
   return axios
     .post('https://the-world-problems-index.herokuapp.com/api/auth/login', user)
@@ -47,15 +47,15 @@ export const USER_FETCHING = "USER_FETCHING";
 export const USER_SUCCESS = "USER_SUCCESS";
 export const USER_FAILURE = "USER_FAILURE";
 
-export const fetchUser = user => dispatch => {
-  console.log("fetched user: ", user);
+export const fetchUser = id => dispatch => {
+  console.log("FETCH user: ", id);
   dispatch({ type: USER_FETCHING });
   return axios
     .get(
-      `https://the-world-problems-index.herokuapp.com/api/auth/user/${user.user.id}`)
+      `https://the-world-problems-index.herokuapp.com/api/auth/user/${id}`)
     .then((res) => {
-      console.log('FETCH USER response: ', res)
-      localStorage.getItem('auth-token', res.data.token)
+      console.log('FETCHED USER response: ', res)
+      // localStorage.getItem('auth-token', res.data.token)
       dispatch({ type: USER_SUCCESS, payload: res.data })
     })
     .catch((err) => {
@@ -80,10 +80,6 @@ export const fetchProblems = () => dispatch => {
       console.log('err: ', err)
       dispatch({ type: PROBLEMS_FAILURE, payload: err })
     })
-    .catch(err => {
-      console.log('token err: ', err);
-      dispatch({ type: PROBLEMS_FAILURE, payload: err });
-    });
 };
 
 export const SINGLE_PROBLEM_FETCHING = 'SINGLE_PROBLEM_FETCHING';
@@ -104,29 +100,7 @@ export const fetchSingleProblem = id => dispatch => {
       console.log('err: ', err)
       dispatch({ type: SINGLE_PROBLEM_FAILURE, payload: err })
     })
-    .catch(err => {
-      console.log('token err: ', err);
-      dispatch({ type: SINGLE_PROBLEM_FAILURE, payload: err });
-    });
 };
-
-// export const RELATED_PROBLEMS_FETCHING = "RELATED_PROBLEMS_FETCHING";
-// export const RELATED_PROBLEMS_SUCCESS = "RELATED_PROBLEMS_SUCCESS";
-// export const RELATED_PROBLEMS_FAILURE = 'RELATED_PROBLEMS_FAILURE';
-
-// export const fetchRelatedProblems = () => dispatch => {
-//   dispatch({ type: RELATED_PROBLEMS_FETCHING })
-//   return axios
-//     .get('')
-//     .then((res) => {
-//       console.log('RELATED SOLUTIONS res: ', res)
-//       dispatch({ type: RELATED_PROBLEMS_SUCCESS, payload: res.data })
-//     })
-//     .catch((err) => {
-//       console.log('err: ', err)
-//       dispatch({ type: RELATED_PROBLEMS_FAILURE, payload: err })
-//     })
-// };
 
 export const SUBMIT_PROBLEM_START = 'SUBMIT_PROBLEM_START'
 export const SUBMIT_PROBLEM_SUCCESS = 'SUBMIT_PROBLEM_SUCCESS'
@@ -171,9 +145,6 @@ export const submitSolution = solutionObj => dispatch => {
         console.log('err: ', err)
         dispatch({ type: SUBMIT_SOLUTION_FAILURE, payload: err.response })
       })
-      .catch(err => {
-        dispatch({ type: SUBMIT_SOLUTION_FAILURE, payload: err.response });
-      });
   };
 };
 
@@ -196,9 +167,6 @@ export const deleteSolution = (solutionId) => dispatch => {
         console.log('err: ', err)
         dispatch({ type: DELETE_SOLUTION_FAILURE, payload: err.response })
       })
-      .catch(err => {
-        dispatch({ type: DELETE_SOLUTION_FAILURE, payload: err.response });
-      });
   };
 };
 

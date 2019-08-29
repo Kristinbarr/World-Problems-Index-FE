@@ -11,11 +11,9 @@ const UserSavedProblemsList = (props) => {
       <h4>Saved Problems</h4>
       <div className='saved-problems-list'>
         {solutionMockData.map((sol) => (
-          <div className='bubble-div'>
+          <div key={sol} className='bubble-div'>
             <div className='bubble-top-info'>
-              <button key={sol} className='problem-bubble'>
-                {sol}
-              </button>
+              <button className='problem-bubble'>{sol}</button>
               <div>
                 <p>1,234 votes</p>
                 <p>delete</p>

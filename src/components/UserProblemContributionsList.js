@@ -11,11 +11,9 @@ const ProblemContributionsList = (props) => {
       <h4>Problem Contributions</h4>
       <div className='problem-contributions-list'>
         {solutionMockData.map((sol) => (
-          <div className='bubble-div'>
+          <div className='bubble-div' key={sol}>
             <div className='bubble-top-info'>
-              <button key={sol} className='problem-bubble'>
-                {sol}
-              </button>
+              <button className='problem-bubble'>{sol}</button>
               <div>
                 <p>1,234 votes</p>
                 <p>delete</p>

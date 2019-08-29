@@ -7,10 +7,12 @@ import ProblemSolutionsList from './ProblemSolutionsList';
 import RelatedProblemList from '../components/RelatedProblemList';
 
 const ProblemDisplay = props => {
+
   const id = props.match.params.id;
 
   useEffect(() => {
     props.fetchSingleProblem(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(props.problem);

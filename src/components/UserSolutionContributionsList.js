@@ -11,14 +11,14 @@ const UserSolutionContributionsList = (props) => {
       <h4>Solution Contributions</h4>
       <div className='solution-contributions-list'>
         {solutionMockData.map((sol) => (
-          <div className='bubble-div'>
+          <div key={sol} className='bubble-div'>
             <div className='bubble-top-info'>
-              <button key={sol} className='problem-bubble'>
-                {sol}
-              </button>
+              <button className='problem-bubble'>{sol}</button>
               <div>
                 <p>1,234 votes</p>
-                <p onClick={props.deleteSolution} className='delete'>delete</p>
+                <p onClick={props.deleteSolution} className='delete'>
+                  delete
+                </p>
               </div>
             </div>
             <div className='bubble-bottom-info'>
