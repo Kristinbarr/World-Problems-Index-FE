@@ -152,11 +152,12 @@
     button {
       background: #585858;
       color: white;
+      border: 1px solid transparent;
+
       &:hover{
         background: white;
         color: #585858;
         border: 1px solid #585858;
-        height: 38.5px;
       }
     }
   }
