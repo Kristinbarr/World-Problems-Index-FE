@@ -43,6 +43,27 @@ export const login = user => dispatch => {
     });
 };
 
+export const USER_FETCHING = "USER_FETCHING";
+export const USER_SUCCESS = "USER_SUCCESS";
+export const USER_FAILURE = "USER_FAILURE";
+
+export const fetchUser = user => dispatch => {
+  console.log("fetched user: ", user);
+  dispatch({ type: USER_FETCHING });
+  return axios
+    .get(
+      `https://the-world-problems-index.herokuapp.com/api/auth/user/${user.user.id}`)
+    .then((res) => {
+      console.log('FETCH USER response: ', res)
+      localStorage.getItem('auth-token', res.data.token)
+      dispatch({ type: USER_SUCCESS, payload: res.data })
+    })
+    .catch((err) => {
+      console.log('token err: ', err)
+      dispatch({ type: USER_FAILURE, payload: err })
+    })
+};
+
 export const PROBLEMS_FETCHING = "PROBLEMS_FETCHING";
 export const PROBLEMS_SUCCESS = "PROBLEMS_SUCCESS";
 export const PROBLEMS_FAILURE = 'PROBLEMS_FAILURE';
