@@ -197,7 +197,7 @@ export const deleteSolution = (solutionId) => dispatch => {
         dispatch({ type: DELETE_SOLUTION_FAILURE, payload: err.response })
       })
       .catch(err => {
-        dispatch({ type: DELETE_SAVED_FAILURE, payload: err.response });
+        dispatch({ type: DELETE_SOLUTION_FAILURE, payload: err.response });
       });
   };
 };
