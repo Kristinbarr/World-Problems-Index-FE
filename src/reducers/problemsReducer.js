@@ -10,6 +10,12 @@ import {
   SINGLE_PROBLEM_FAILURE
 } from '../actions'
 
+// import {
+//   RELATED_PROBLEMS_FETCHING,
+//   RELATED_PROBLEMS_SUCCESS,
+//   RELATED_PROBLEMS_FAILURE
+// } from '../actions'
+
 import {
   SUBMIT_PROBLEM_START,
   SUBMIT_PROBLEM_SUCCESS,
@@ -23,9 +29,9 @@ import {
 } from '../actions'
 
 import {
-  DELETE_SAVED_START,
-  DELETE_SAVED_SUCCESS,
-  DELETE_SAVED_FAILURE
+  DELETE_SOLUTION_START,
+  DELETE_SOLUTION_SUCCESS,
+  DELETE_SOLUTION_FAILURE
 } from '../actions'
 
 export const initialState = {
@@ -74,6 +80,24 @@ const problemsReducer = (state = initialState, action) => {
         fetchingProblems: false,
         error: action.payload
       }
+    // RELATED SOLUTIONS
+    // case RELATED_PROBLEMS_FETCHING:
+    //   return {
+    //     ...state,
+    //     fetchingProblems: true
+    //   }
+    // case RELATED_PROBLEMS_SUCCESS:
+    //   return {
+    //     ...state,
+    //     fetchingProblems: false,
+    //     problem: action.payload
+    //   }
+    // case RELATED_PROBLEMS_FAILURE:
+    //   return {
+    //     ...state,
+    //     fetchingProblems: false,
+    //     error: action.payload
+    //   }
     // SUBMIT PROBLEM
     case SUBMIT_PROBLEM_START:
       return {
@@ -112,18 +136,20 @@ const problemsReducer = (state = initialState, action) => {
         error: action.payload
       }
     // DELETE
-    case DELETE_SAVED_START:
+    case DELETE_SOLUTION_START:
       return {
         ...state,
         isSubmitting: true
       }
-    case DELETE_SAVED_SUCCESS:
+    case DELETE_SOLUTION_SUCCESS:
       return {
         ...state,
         isSubmitting: false,
-        problemsList: state.problemsList.filter(el => el.id !== action.payload.id)
+        // problemsList: state.problemsList.filter(
+        //   (el) => el.id !== action.payload.id
+        // )
       }
-    case DELETE_SAVED_FAILURE:
+    case DELETE_SOLUTION_FAILURE:
       return {
         ...state,
         isSubmitting: false,
