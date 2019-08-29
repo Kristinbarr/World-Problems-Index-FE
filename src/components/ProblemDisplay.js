@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import { fetchSingleProblem } from '../actions';
 
 import SolutionForm from './SolutionForm';
-import ProblemSolutionList from './ProblemSolutionList';
+import ProblemSolutionsList from './ProblemSolutionsList';
 import RelatedProblemList from '../components/RelatedProblemList';
 
 const ProblemDisplay = props => {
+
   const id = props.match.params.id;
 
   useEffect(() => {
     props.fetchSingleProblem(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(props.problem);
