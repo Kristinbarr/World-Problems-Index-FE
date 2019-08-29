@@ -1,5 +1,5 @@
-import React from 'react'
-import ProblemSolution from './ProblemSolution'
+import React from 'react';
+import ProblemSolution from './ProblemSolution';
 
 const ProblemSolutionsList = (props) => {
   if (props.solutions) {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSingleProblem } from '../actions';
 
 import SolutionForm from './SolutionForm';
-import ProblemSolutionList from './ProblemSolutionList';
+import ProblemSolutionsList from './ProblemSolutionsList';
 import RelatedProblemList from '../components/RelatedProblemList';
 
 const ProblemDisplay = props => {

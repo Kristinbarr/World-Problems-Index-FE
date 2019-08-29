@@ -85,6 +85,7 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingProblems: false,
+      };
     // SUBMIT PROBLEM
     case SUBMIT_PROBLEM_START:
       return {
