@@ -8,6 +8,9 @@
 @import 'Login';
 @import 'Signup';
 @import 'Footer';
+@import 'UserProblemForm';
+@import 'UserSolutionContributionsList';
+
 @import url('https://fonts.googleapis.com/css?family=Orienta|Poiret+One&display=swap');
 
 * {
@@ -99,5 +102,5 @@ button:hover {
   flex-direction: column;
   text-align: center;
   min-height: 100vh;
-  
+
 }

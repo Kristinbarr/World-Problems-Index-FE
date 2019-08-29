@@ -1,7 +1,7 @@
 import React from 'react'
 import ProblemSolution from './ProblemSolution'
 
-const ProblemSolutionList = (props) => {
+const ProblemSolutionsList = (props) => {
   if (props.solutions) {
     return (
       <div className='problem-solutions'>
@@ -13,4 +13,4 @@ const ProblemSolutionList = (props) => {
   } else return null
 }
 
-export default ProblemSolutionList
+export default ProblemSolutionsList

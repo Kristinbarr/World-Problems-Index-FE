@@ -9,18 +9,22 @@ const Signup = (props) => {
     setCreds({ ...creds, [e.target.name]: e.target.value })
   }
 
+  console.log('signup props',props)
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.signup(creds);
+    props.signup(creds).then(() => {
+      props.history.push('/dashboard')
+    })
+    console.log('e.target', e.target)
     console.log('signup user object: ', props.user);
     setCreds({ username: '', password: '' })
   }
 
   return (
     <div className='signup'>
-      {!props.signingUp ? 
+      {!props.signingUp ?
         (<form onSubmit={handleSubmit}>
-          <h1></h1>
+          <h1>Sign Up</h1>
           <label>username</label>
           <input
             type='text'

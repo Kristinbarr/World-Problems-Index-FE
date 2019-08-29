@@ -7,7 +7,7 @@ export default function Navigation() {
     <nav className="navDiv">
       <div className="logoDiv">
         <NavLink className="link" exact activeClassName="active" to={"/"}>
-          <img src={Logo}></img>
+          <img src={Logo} alt='logo'></img>
         </NavLink>
       </div>
 
