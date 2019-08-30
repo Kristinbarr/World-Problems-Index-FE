@@ -34,7 +34,7 @@ class SolutionForm extends React.Component {
     return (
       <>
         <div className='solution-form'>
-          <h4>add a solution to this problem</h4>
+          <h2>add a solution to this problem</h2>
           <form onSubmit={this.handleSubmit}>
             <input
               type='text'
