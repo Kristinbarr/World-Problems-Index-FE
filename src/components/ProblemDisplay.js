@@ -12,7 +12,6 @@ const ProblemDisplay = props => {
 
   useEffect(() => {
     props.fetchSingleProblem(id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(props.problem);
