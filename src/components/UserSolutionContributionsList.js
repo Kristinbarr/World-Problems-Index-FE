@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { deleteSolution, fetchSingleProblem } from '../actions'
 
 const UserSolutionContributionsList = (props) => {
-  const [solutions, setSolutions] = useState(
-    props.userData.solutionsAddedByUser
-  )
-
-  console.log('solution contribs props', props.userData.solutionsAddedByUser)
-  console.log('sols', solutions, Array.isArray(solutions))
+  // console.log('solution contribs props', props.userData.solutionsAddedByUser)
+  // console.log('sols', solutions, Array.isArray(solutions))
 
   const handleClickDelete = (id) => {
-    console.log('clicked delete')
+    // console.log('clicked delete')
     props.deleteSolution(id)
-    // setSolutions()
   }
   const handleClickProblem = (id) => {
-    console.log('clicked fetch problem')
+    // console.log('clicked fetch problem')
     props.fetchSingleProblem(id)
   }
-  // useEffect(() => {
-  // })
 
   return (
     <div className='solution-contributions'>
