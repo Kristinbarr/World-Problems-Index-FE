@@ -7,7 +7,7 @@ import ProblemSolutionsList from './ProblemSolutionsList';
 import RelatedProblemList from '../components/RelatedProblemList';
 
 const ProblemDisplay = props => {
-
+  console.log('problemdisaply props', props)
   const id = props.match.params.id;
 
   useEffect(() => {
@@ -33,18 +33,13 @@ const ProblemDisplay = props => {
         <div className='problem-related-container'>
           <h4>Problems with related solutions</h4>
           <div className='problem-related-solutions'>
-            {/* {solutionMockData.map((sol) => (
-                <button key={sol} className='problem-bubble'>
-                  {sol}
-                </button>
-              ))} */}
             <RelatedProblemList
               relatedProblems={props.problem.relatedProblems}
             />
           </div>
         </div>
-        <SolutionForm id={id} />
       </div>
+      <SolutionForm id={id} />
     </div>
   );
 };
