@@ -3,12 +3,11 @@
   justify-content: center;
   align-items: flex-start;
   background: $grey-white;
-  padding: 1rem;
- 
+  padding: 1rem 0 8rem 0;
 
   h2 {
     font-family: 'Poiret One', Arial, Helvetica, sans-serif;
-    margin: 2rem;
+    margin: 3rem;
   }
 
   form {
@@ -16,7 +15,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
     h6 {
+      font-size: 1.4rem;
       margin-top: 1rem;
     }
     input {

@@ -98,9 +98,10 @@ button:hover {
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // text-align: center;
+  position: relative;
   min-height: 100vh;
 
 }
