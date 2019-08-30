@@ -14,7 +14,7 @@ const ProblemDisplay = props => {
     props.fetchSingleProblem(id);
   }, []);
 
-  console.log(props.problem);
+  // console.log('props problems',props.problem);
   return (
     <div className='problem-container'>
       <div className='problem-header'>
@@ -44,7 +44,6 @@ const ProblemDisplay = props => {
   );
 };
 const mapStateToProps = state => {
-  console.log('mapstate', state);
   return {
     fetchingProblems: state.problemsReducer.fetchingProblems,
     problem: state.problemsReducer.problem,

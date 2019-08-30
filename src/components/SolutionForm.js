@@ -7,13 +7,14 @@ class SolutionForm extends React.Component {
     super(props)
     this.state = {
       name: '',
-      userId: '123', //TODO: get live user ID
+      userId: '',
       problemId: ''
     }
   }
 
   handleChange = (e) => {
     this.setState({ ...this.state, name: e.target.value })
+    // console.log('sol FORM state', this.state)
   }
 
   handleSubmit = (e) => {

@@ -4,10 +4,14 @@ import { addVote, removeVote } from '../actions'
 
 const ProblemSolutionList = (props) => {
   console.log('sol list props', props)
-  const voted = () => {
-    const user = props.user.user.id.toString()
-    const problem = props.problem._id.toString()
+
+  const voted = (solutionId) => {
+    const userId = props.user.user.id.toString()
+    const problemId = props.problem._id.toString()
+    // console.log('clicked vote',solutionId, userId, problemId)
+    props.addVote(solutionId, userId, problemId)
     // props.problem.problemSolutions.forEach(solution => solution._id === props.solution._id  && (solution.votes.filter(vote => )))
+    // console.log('voted', props)
   }
   const handleClickDelete = (id) => {
     // console.log('clicked delete')
