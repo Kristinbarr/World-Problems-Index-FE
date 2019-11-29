@@ -2,36 +2,54 @@
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  background: #f8f8f8;
-  width: 100%;
   min-height: 50vh;
-  padding: 4rem;
+
+  h1 {
+    font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+    padding-bottom: 5rem;
+    line-height: 4rem;
+    color: $grey-dark;
+  }
 
   .home-content {
     display: flex;
     justify-content: center;
-    flex-flow: row wrap;
-    width: 1000px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .home-divider {
+      border-bottom: 1px solid $grey-light;
+      width: 20%;
+    }
 
     .home-headline {
-      margin: 0 2rem 2rem 2rem;
+      margin: 0 2rem 0rem 2rem;
       font-family: 'Orienta', Arial, Helvetica, sans-serif;
-      line-height: 3rem;
+      font-size: 2rem;
+      line-height: 4rem;
       color: $grey-dark;
-      max-width: 70%;
-
+      max-width: 80%;
+      margin: 3rem;
     }
     .home-problems {
-      // background: tan;
+      background: #f8f8f8;
+      padding: 5rem 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
 
-      .problem-bubble {
-        margin: 1rem;
-        border-radius: 30px;
-        border: 1px solid $grey-light;
-        font-size: 1.6rem;
-        max-height: 4.4rem;
-        color: $grey-dark;
-        background: white;
+      .home-problems-wrapper {
+        width: 80%;
+        .problem-bubble {
+          margin: 1rem;
+          border-radius: 30px;
+          font-size: 1.6rem;
+          max-height: 4.4rem;
+          color: white;
+          background: $grey-dark;
+        }
       }
     }
   }

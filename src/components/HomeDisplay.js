@@ -19,18 +19,27 @@ const HomeDisplay = props => {
 
   return (
     <div className='home-container'>
+      <h1>World Problems Index</h1>
       <div className='home-content'>
+        <div className='home-divider'></div>
         <h2 className='home-headline'>
-          Investigate different problems of the world touching many lives. Consider, contribute to and support their solutions. Explore and compare related problems and solutions to discover impactful connections.
+          Investigate different problems of the world touching many lives.
+          <br />
+          Consider, contribute to and support their crowd sourced solutions.
+          <br />
+          Explore and compare related problems and solutions to
+          discover impactful connections.
         </h2>
         <div className='home-problems'>
-          {problemList.map(item => {
-            return (
-              <Link to={`problems/${item.id}`} key={item.id}>
-                <button className='problem-bubble'>{item.title}</button>
-              </Link>
-            );
-          })}
+          <div className='home-problems-wrapper'>
+            {problemList.map((item) => {
+              return (
+                <Link to={`problems/${item.id}`} key={item.id}>
+                  <button className='problem-bubble'>{item.title}</button>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
