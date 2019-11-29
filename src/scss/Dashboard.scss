@@ -1,9 +1,9 @@
 .dashboard {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin: 0 auto 0 auto;
-
 
   h4 {
     text-align: start;
@@ -84,8 +84,7 @@
     }
   }
 
-  .saved-problems,
-  .problem-contributions {
+  .saved-problems {
     display: flex;
     flex-direction: column;
     width: 33%;
@@ -136,8 +135,7 @@
     }
   }
 
-  .saved-problems-list,
-  .problem-contributions-list {
+  .saved-problems-list {
     button {
       background: #585858;
       color: white;
@@ -148,13 +146,6 @@
         color: #585858;
         border: 1px solid #585858;
       }
-    }
-  }
-
-  .solution-contributions-list {
-    button {
-      background: white;
-      border: 1px solid #585858;
     }
   }
 }
