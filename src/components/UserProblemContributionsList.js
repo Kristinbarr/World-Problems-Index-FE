@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {} from '../actions'
 import data from '../data'
 
-const ProblemContributionsList = (props) => {
+const UserProblemContributionsList = (props) => {
   // console.log('user problems props', props)
   const solutionMockData = data.slice(0, 4)
 
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   {}
-)(ProblemContributionsList)
+)(UserProblemContributionsList)
