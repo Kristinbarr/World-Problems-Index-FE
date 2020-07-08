@@ -7,7 +7,7 @@ import ProblemSolutionsList from './ProblemSolutionsList';
 import RelatedProblemList from '../components/RelatedProblemList';
 
 const ProblemDisplay = props => {
-  console.log('problemdisaply props', props)
+  // console.log('SINGLE PROBLEM props', props)
   const id = props.match.params.id;
 
   useEffect(() => {
